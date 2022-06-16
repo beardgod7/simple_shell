@@ -1,36 +1,30 @@
-shellby - Simple Shell shell
-A simple UNIX command interpreter written as part of the low-level programming and algorithm track at ALX.
+Description
+A simple UNIX command interpreter that replicates functionalities of the simple shell (sh). Additional functions are also included. This program was written entirely in C as a milestone project for ALX Africa Software Engineering.
 
-Description speech_balloon
-Shellby is a simple UNIX command language interpreter that reads commands from either a file or standard input and executes them.
+Installation
+Clone this repository into your working directory. For best results, files should be compiled with GCC and the following flags: -Wall -Wextra -Werror -pedantic -std=gnu89
 
-Invocation runner
-Usage: shellby [filename]
+Usage
+After compilation, the resulting program can run stand-alone, either in interactive or non-interactive mode.
 
-To invoke shellby, compile all .c files in the repository and run the resulting executable:
+Interactive Mode
+In interactive mode, simply run the program and wait for the prompt to appear. From there, you can type commands freely, exiting with either the "exit" command or ctrl-D.
 
-gcc *.c -o shellby
-./shellby
-Shellby can be invoked both interactively and non-interactively. If shellby is invoked with standard input not connected to a terminal, it reads and executes received commands in order.
+Non-Interactive Mode
+In non-interactive mode, echo your desired command and pipe it into the program like this:
 
-Example:
+echo "ls" | ./shell
+In non-interactive mode, the program will exit after finishing your desired command(s).
 
-$ echo "echo 'hello'" | ./shellby
-'hello'
-$
-If shellby is invoked with standard input connected to a terminal (determined by isatty(3)), an interactive shell is opened. When executing interactively, shellby displays the prompt $ when it is ready to read a command.
+Included Built-Ins
+Our shell has support for the following built-in commands:
 
-Example:
-
-$./shellby
-$
-Alternatively, if command line arguments are supplied upon invocation, shellby treats the first argument as a file from which to read commands. The supplied file should contain one command per line. Shellby runs each of the commands contained in the file in order before exiting.
-
-Example:
-
-$ cat test
-echo 'hello'
-$ ./shellby test
-'hello'
-$
-
+Command	Definition
+exit [n]	Exit the shell, with an optional exit status, n.
+env	Print the environment.
+setenv [var][value]	Set an environment variable and value. If the variable exists, the value will be updated.
+unsetenv [var]	Remove an environment variable.
+cd [dir]	Change the directory.
+help [built-in]	Read documentation for a built-in.
+Credits
+All code written by Nwaoke francis and saheed quadri
